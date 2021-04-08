@@ -9,8 +9,13 @@
 <script src="js/loginId.js"></script>
 </head>
 <body>
-    <span id="texts">&nbsp;</span>
-    <input onkeyup="enterkey();" type="text"  value="" autofocus method="post"/>
+<span id="texts">&nbsp;</span>
+<form class="login-form" method="post">
+<input onkeyup="enterkey();" type="text" name="id" autofocus/></br>
+<span id="texts1">&nbsp;</span><br>
+<input onkeyup="();" type="text" name="pw"/>
+</form>
+
 <script>
 gogogo();
 </script>

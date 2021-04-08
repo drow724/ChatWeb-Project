@@ -1,8 +1,8 @@
 package entity;
 
 public class login {
-	private String Id;
-	private int Pw;
+	private String userId;
+	private int userPassword;
 	
 	
 	
@@ -12,32 +12,32 @@ public class login {
 
 
 	public login(String id, int pw) {
-		this.Id = id;
-		this.Pw = pw;
+		this.userId = id;
+		this.userPassword = pw;
 	}
 
 
 
 	public String getId() {
-		return Id;
+		return userId;
 	}
 
 
 
 	public void setId(String id) {
-		Id = id;
+		userId = id;
 	}
 
 
 
 	public int getPw() {
-		return Pw;
+		return userPassword;
 	}
 
 
 
 	public void setPw(int pw) {
-		Pw = pw;
+		userPassword = pw;
 	}
 	
 	
