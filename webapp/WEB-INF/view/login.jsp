@@ -9,11 +9,12 @@
 <script src="js/login.js"></script>
 </head>
 <body>
-<span id="texts">&nbsp;</span>
-<form class="login-form" method="post">
-<input id="id" onkeyup="enterkey();" type="text" name="id"/></br>
+<form class="login-form" method="post" action="login" name="loginInfo" onsubmit="return false">
+<span id="texts">&nbsp;</span><br>
+<input id="id" onkeydown="enterkey();" type="text" name="userID"/><br>
 <span id="texts1">&nbsp;</span><br>
-<input id="pw" onkeyup="();" type="password" name="pw"/>
+<input id="pw" onkeydown="enterkey1();" type="password" name="userPassword"/><br>
+<button id="texts2" onclick="pressSubmit();" onkeyup="pressSubmit();" type="submit">&nbsp;</button>
 </form>
 
 <script>
