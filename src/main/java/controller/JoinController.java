@@ -8,13 +8,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/loginPw")
-public class LoginPwController  extends HttpServlet {
+@WebServlet("/join")
+public class JoinController  extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request
-		.getRequestDispatcher("/WEB-INF/view/loginPw.jsp")
+		.getRequestDispatcher("/WEB-INF/view/join.jsp")
 		.forward(request, response);
 	}
 }

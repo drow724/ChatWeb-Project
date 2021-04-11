@@ -1,5 +1,4 @@
 @charset "UTF-8";
-
 body{
 	background-color: black;
 	color: lime
@@ -45,14 +44,59 @@ input{
 	border: none;
 	background-color: black;
 	color: lime;
-	font-size:150%;
+	font-size:2.0em;
     width:16.3em;
        white-space:nowrap;
     overflow:hidden;
-    font-size:10pt;
 }
 
 input:focus {outline:none;}
 form{
 	border:none;
+}
+
+div{
+	margin-top: 5%;
+}
+
+button{
+	border: none;
+	background-color: black;
+	color: lime;
+	font-size:1.5em;
+    width:auto;
+       white-space:nowrap;
+    overflow:hidden;
+    text-align: center;
+}
+button:focus {
+	outline:none;
+	background-color: lime;
+	color: black;
+	
+}
+
+span.main{
+	display: flex;
+	justify-content: center;
+	font-size: 2.5em;
+	height: auto;
+	width: auto;
+}
+
+span{
+	font-size: 2.0em;
+	height: auto;
+	width: auto;
+}
+
+span.art{
+	font-family: 'Orbitron', sans-serif;
+	display: flex;
+	justify-content: center;
+	font-size: 6em;
+	height: auto;
+	width: auto;
+	margin-top: 10%;
+	margin-bottom: 15%
 }
