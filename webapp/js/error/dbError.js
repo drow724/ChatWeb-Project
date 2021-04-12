@@ -9,14 +9,14 @@ var cnt2 = 0;
 var timer2 = null;
 
 function gogogo(){
-text = "Let's Chat!";	
+text = "데이터베이스 오류";	
     document.getElementById('art').innerHTML = text.substring(0, cnt) + "_";
     cnt++;
     timer = setTimeout('gogogo()', speed);
 }
 
 function gogogo1(){
-text = " 로그인";	
+text = "돌아가기";	
     document.getElementById('texts1').innerHTML = text.substring(0, cnt1) + "_";
     cnt1++;
     timer1 = setTimeout('gogogo1()', speed1);
@@ -26,9 +26,6 @@ function clickLogin() {
 	location.href="login";
 }
 
-function clickJoin() {
-	location.href="join";
-}
 
 function enterkeyup() {
         if (window.event.keyCode == 13) {
@@ -37,40 +34,13 @@ function enterkeyup() {
              login();
         }
         
-         else if (window.event.keyCode == 39 || window.event.keyCode == 40){ 
-			document.getElementById('texts2').focus();
-	}
 }
 
-function enterkeydown() {
-        if (window.event.keyCode == 13) {
- 
-             // 엔터키가 눌렸을 때 실행할 내용
-             join();
-        }
-        
-         else if (window.event.keyCode == 37 || window.event.keyCode == 38){ 
-			document.getElementById('texts1').focus();
-	}
-}
 
 function login() {
 
 location.href="login";
 
-}
-
-function join() {
-
-location.href="join";
-
-}
-
-function gogogo2() {
- text = "회원가입";	
- document.getElementById('texts2').innerHTML = text.substring(0, cnt2) + "_";
-    cnt2++;
-    timer2 = setTimeout('gogogo2()', speed2);
 }
 
 function focus(){

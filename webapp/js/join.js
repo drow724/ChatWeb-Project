@@ -1,44 +1,44 @@
-var speed = 70; //글자가 찍히는 속도
+var speed = 50; //글자가 찍히는 속도
 var cnt = 0;
 var timer = null;
 
-var speed1 = 70; //글자가 찍히는 속도
+var speed1 = 50; //글자가 찍히는 속도
 var cnt1 = 0;
 var timer1 = null;
 
-var speed2 = 70; //글자가 찍히는 속도
+var speed2 = 50; //글자가 찍히는 속도
 var cnt2 = 0;
 var timer2 = null;
 
-var speed3 = 70; //글자가 찍히는 속도
+var speed3 = 50; //글자가 찍히는 속도
 var cnt3 = 0;
 var timer3 = null;
 
-var speed4 = 70; //글자가 찍히는 속도
+var speed4 = 50; //글자가 찍히는 속도
 var cnt4 = 0;
 var timer4 = null;
 
-var speed5 = 70; //글자가 찍히는 속도
+var speed5 = 50; //글자가 찍히는 속도
 var cnt5 = 0;
 var timer5 = null;
 
-var speed6 = 70; //글자가 찍히는 속도
+var speed6 = 50; //글자가 찍히는 속도
 var cnt6 = 0;
 var timer6 = null;
 
-var speed7 = 70; //글자가 찍히는 속도
+var speed7 = 50; //글자가 찍히는 속도
 var cnt7 = 0;
 var timer7 = null;
 
-var speed8 = 70; //글자가 찍히는 속도
+var speed8 = 50; //글자가 찍히는 속도
 var cnt8 = 0;
 var timer8 = null;
 
-var speed9 = 70; //글자가 찍히는 속도
+var speed9 = 50; //글자가 찍히는 속도
 var cnt9 = 0;
 var timer9 = null;
 
-var speed10 = 70; //글자가 찍히는 속도
+var speed10 = 50; //글자가 찍히는 속도
 var cnt10 = 0;
 var timer10 = null;
 
@@ -61,7 +61,7 @@ function enterkey() {
  
              // 엔터키가 눌렸을 때 실행할 내용
              gogogo1();
-             setTimeout(function() {document.getElementById('pw').focus();}, 1200);
+             setTimeout(function() {document.getElementById('pw').focus();}, 500);
              
         }
 }
@@ -71,7 +71,7 @@ function enterkey1() {
  
              // 엔터키가 눌렸을 때 실행할 내용
              gogogo2();
-             setTimeout(function() {document.getElementById('pwchk').focus();}, 1100);
+             setTimeout(function() {document.getElementById('pwchk').focus();}, 500);
              
         }
 }

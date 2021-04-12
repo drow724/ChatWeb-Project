@@ -1,10 +1,10 @@
-var speed = 70; //글자가 찍히는 속도
+var speed = 50; //글자가 찍히는 속도
 var cnt = 0;
 var timer = null;
-var speed1 = 70; //글자가 찍히는 속도
+var speed1 = 50; //글자가 찍히는 속도
 var cnt1 = 0;
 var timer1 = null;
-var speed2 = 70; //글자가 찍히는 속도
+var speed2 = 50; //글자가 찍히는 속도
 var cnt2 = 0;
 var timer2 = null;
 
@@ -41,7 +41,7 @@ function enterkey() {
  
              // 엔터키가 눌렸을 때 실행할 내용
              gogogo1();
-             setTimeout(function() {document.getElementById('pw').focus();}, 1200);
+             setTimeout(function() {document.getElementById('pw').focus();}, 500);
              
         }
 }

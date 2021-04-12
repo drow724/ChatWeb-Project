@@ -19,7 +19,7 @@
 
 <script>
 gogogo();
-setTimeout(function() {focus()}, 1200);
+setTimeout(function() {focus()}, 500);
 </script>
 </body>
 </html>
