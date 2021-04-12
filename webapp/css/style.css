@@ -100,3 +100,12 @@ span.art{
 	margin-top: 10%;
 	margin-bottom: 15%
 }
+
+input.gender{
+	display: none;
+	color: lime;
+	background-color: black;
+}
+#id{
+	ime-mode: disabled;
+}

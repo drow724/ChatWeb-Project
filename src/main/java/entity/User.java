@@ -1,18 +1,18 @@
 package entity;
 
 public class User {
-	private static String userID;
-	private static String userPassword;
+	private String userID;
+	private String userPassword;
 	private String userName;
 	private String userGender;
 	private String userEmail;
-	public static String getUserID() {
+	public  String getUserID() {
 		return userID;
 	}
 	public void setUserID(String userID) {
 		this.userID = userID;
 	}
-	public static String getUserPassword() {
+	public String getUserPassword() {
 		return userPassword;
 	}
 	public void setUserPassword(String userPassword) {

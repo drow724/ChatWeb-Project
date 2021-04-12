@@ -25,7 +25,9 @@ public class LoginController  extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String userID = request.getParameter("userID");
 		String userPassword =request.getParameter("userPassword");
+		
 		UserDAO userDAO = new UserDAO();
+		
 		int result = userDAO.login(userID, userPassword);
 		if (result == 1) {
 			PrintWriter script = response.getWriter();
