@@ -26,7 +26,7 @@
 <script>
 gogogo();
 setTimeout(function() {gogogo1()}, 1000);
-setTimeout(function() {focus()}, 2000);
+setTimeout(function() {focus()}, 1500);
 </script>
 </body>
 </html>

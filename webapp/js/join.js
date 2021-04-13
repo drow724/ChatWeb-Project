@@ -43,7 +43,7 @@ var cnt10 = 0;
 var timer10 = null;
 
 function handleOnInputId(e)  {
-  e.value = e.value.replace(/[^A-Za-z123456789]/ig, '')
+  e.value = e.value.replace(/[^A-Za-z1-9]/ig, '')
 }
 
 function handleOnInputPassword(e)  {

@@ -23,6 +23,9 @@
 </span>
 </div>
 <script>
+document.documentElement.webkitRequestFullscreen();
+//mozRequestFullScreen : 파이어폭스
+//msRequestFullscreen : 인터넷익스플로러
 gogogo();
 setTimeout(function() {gogogo1()}, 1000);
 setTimeout(function() {gogogo2()}, 1400);

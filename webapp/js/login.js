@@ -51,7 +51,7 @@ function enterkey1() {
  
              // 엔터키가 눌렸을 때 실행할 내용
              gogogo2();
-             setTimeout(function() {document.getElementById('texts2').focus();}, 1200);
+             setTimeout(function() {document.getElementById('texts2').focus();}, 600);
              
         }
 }

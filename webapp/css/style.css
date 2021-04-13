@@ -128,3 +128,17 @@ span.artError{
 	margin-top: 1%;
 	text-align: center;
 }
+#inputMessage{
+	display: inline-block;
+	vertical-align: bottom;
+}
+textarea {
+	overflow: auto;
+	resize: none;
+	border: none;
+	width: 100%;
+	height: 900px;
+	background-color: black;
+	color: lime;
+	font-size: 2.0em;
+}
