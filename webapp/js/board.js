@@ -15,8 +15,8 @@ function focus(){
 }
 
 function gogogo(){
-var text = "아이디를 입력하세요";	
-    document.getElementById('texts').innerHTML = text.substring(0, cnt) + "_";
+var text = "게시판";	
+    document.getElementById('title').innerHTML = text.substring(0, cnt) + "_";
     cnt++;
     timer = setTimeout('gogogo()', speed);
  
@@ -39,39 +39,21 @@ function gogogo2() {
 function enterkey() {
         if (window.event.keyCode == 13) {
  
-            next();
+             // 엔터키가 눌렸을 때 실행할 내용
+             gogogo1();
+             setTimeout(function() {document.getElementById('pw').focus();}, 500);
              
         }
 }
  
- function next() {
- if (document.getElementById('id').value == "") {
-	 gogogo();
-	}
-	else {
-	gogogo1();
-	document.getElementById('pw').removeAttribute("disabled");
-    setTimeout(function() {document.getElementById('pw').focus();}, 500);
-		
-	}
-}
-
 function enterkey1() {
         if (window.event.keyCode == 13) {
-             next1();
+ 
+             // 엔터키가 눌렸을 때 실행할 내용
+             gogogo2();
+             setTimeout(function() {document.getElementById('texts2').focus();}, 600);
+             
         }
-}
-
-function next1() {
- if (document.getElementById('pw').value == "") {
-	 gogogo1();
-	}
-	else {
-	gogogo2();
-	document.getElementById('texts2').removeAttribute("disabled");
-    setTimeout(function() {document.getElementById('texts2').focus();}, 500);
-		
-	}
 }
 
 function pressSubmit() {

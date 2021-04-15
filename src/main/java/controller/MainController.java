@@ -7,13 +7,28 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/main")
 public class MainController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/view/main.jsp").forward(request, response);
+		HttpSession session = request.getSession();
+		
+		String userID = null;
+		if(session.getAttribute("userID") != null) {
+			userID = (String) session.getAttribute("userID");
+		}
+		if(userID != null) {
+			request
+			.getRequestDispatcher("/WEB-INF/view/main.jsp")
+			.forward(request, response);
+		}else {
+		request
+		.getRequestDispatcher("/WEB-INF/view/index.jsp")
+		.forward(request, response);
+	}
 	}
 
 }

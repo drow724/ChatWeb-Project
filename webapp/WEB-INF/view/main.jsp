@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +15,7 @@
 </head>
 <body>
 <div>
+<button id="texts4" onclick="clickLogOut();" onkeyup="enterkeydown4();">&nbsp;</button>
 <span id="art" class="art">
 &nbsp;
 </span>
@@ -27,9 +31,10 @@
 </div>
 <script>
 gogogo();
-setTimeout(function() {gogogo1()}, 1000);
-setTimeout(function() {gogogo2()}, 1400);
-setTimeout(function() {gogogo3()}, 1800);
+setTimeout(function() {gogogo1()}, 500);
+setTimeout(function() {gogogo2()}, 1000);
+setTimeout(function() {gogogo3()}, 1500);
+setTimeout(function() {gogogo4()}, 2000);
 setTimeout(function() {focus()}, 2000);
 </script>
 </body>

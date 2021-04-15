@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import entity.User;
 import entity.UserDAO;
@@ -16,10 +17,21 @@ import entity.UserDAO;
 public class JoinController  extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		HttpSession session = request.getSession();
+		
+		String userID = null;
+		if(session.getAttribute("userID") != null) {
+			userID = (String) session.getAttribute("userID");
+		}
+		if(userID != null) {
+			request
+			.getRequestDispatcher("/WEB-INF/view/main.jsp")
+			.forward(request, response);
+		}else {
 		request
 		.getRequestDispatcher("/WEB-INF/view/join.jsp")
 		.forward(request, response);
+	}
 	}
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -30,6 +42,7 @@ public class JoinController  extends HttpServlet {
 		String userEmail = request.getParameter("userEmail");
 		
 		User user = new User();
+		HttpSession session = request.getSession();
 		
 		user.setUserID(userID);
 		user.setUserPassword(userPassword);
@@ -40,17 +53,25 @@ public class JoinController  extends HttpServlet {
 		if (userID == null || userPassword == null || userName == null || userGender == null || userEmail == null ) {
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
-			script.println("location.href = 'regerror.jsp'");
+			script.println("location.href = 'joinError'");
 			script.println("</script>");
 		}else {
 			UserDAO userDAO = new UserDAO();
 			int result = userDAO.join(user);
-			if (result == 1) {
+			if (result == -1) {
 				PrintWriter script = response.getWriter();
 				script.println("<script>");
-				script.println("location.href = 'main.jsp'");
+				script.println("location.href = 'overlapError'");
 				script.println("</script>");
-		}
+			}
+			else {
+				session.setAttribute("userID", user.getUserID());
+				System.out.println(session.getAttribute("userID"));
+				PrintWriter script = response.getWriter();
+				script.println("<script>");
+				script.println("location.href = 'main'");
+				script.println("</script>");
+			}
 		
 		}
 	}

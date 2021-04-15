@@ -59,28 +59,21 @@ function focus(){
 function enterkey() {
         if (window.event.keyCode == 13) {
  
-             // 엔터키가 눌렸을 때 실행할 내용
-             gogogo1();
-             setTimeout(function() {document.getElementById('pw').focus();}, 500);
-             
-        }
+        next();
+       }
 }
 
 function enterkey1() {
         if (window.event.keyCode == 13) {
  
-             // 엔터키가 눌렸을 때 실행할 내용
-             gogogo2();
-             setTimeout(function() {document.getElementById('pwchk').focus();}, 500);
+             next1();
              
         }
 }
 function enterkey2() {
         if (window.event.keyCode == 13) {
  
-             // 엔터키가 눌렸을 때 실행할 내용
-             gogogo3();
-             setTimeout(function() {document.getElementById('name').focus();}, 500);
+            next2();
              
         }
 }
@@ -90,8 +83,7 @@ function enterkey3() {
         if (window.event.keyCode == 13) {
         	
 
-             	gogogo4();
-             	setTimeout(function() {document.getElementById('gender').focus();}, 500);    
+             	next3();
              	}
              	
 }
@@ -102,9 +94,8 @@ function enterkey4() {
  			x=document.joinInfo
         	txt=x.gender.value
         		if(txt>=1 && txt<=2) {
-
-             gogogo7();
-             setTimeout(function() {document.getElementById('email').focus();}, 500);
+					next4();
+             
              } else {
 				txt=1; 
              }       
@@ -114,16 +105,13 @@ function enterkey4() {
 function enterkey5() {
         if (window.event.keyCode == 13) {
  
- 			 gogogo8();
-            setTimeout(function() {gogogo9();}, 500);
-            setTimeout(function() {gogogo10();}, 1200);
-            setTimeout(function() {document.getElementById('button1').focus();}, 1700);
+ 			next5();
              
         }
 }
 
-function gogogo(){
-var text = "원하는 아이디를 입력하세요(영문+숫자 조합)";	
+function gogogo() {
+	var text = "원하는 아이디를 입력하세요(영문+숫자 조합)";	
     document.getElementById('texts').innerHTML = text.substring(0, cnt)+ "_";
     cnt++;
     timer = setTimeout('gogogo()', speed);
@@ -152,7 +140,7 @@ function gogogo3() {
 }
 
 function gogogo4() {
- text = "성별을 입력하세요(남자는 '남자' 여자는 '여자')";	
+ text = "성별을 입력하세요(남자는 '1' 여자는 '2')";	
  document.getElementById('texts4').innerHTML = text.substring(0, cnt4) + "_";
     cnt4++;
     timer4 = setTimeout('gogogo4()', speed4);
@@ -202,4 +190,91 @@ function pressNo() {
 	 else if (window.event.keyCode == 37 || window.event.keyCode == 38){ 
 			document.getElementById('button1').focus();
 			}
+}
+
+function next() {
+ if (document.getElementById('id').value == "") {
+	 gogogo();
+	}
+	else {
+	gogogo1();
+		document.getElementById('pw').removeAttribute("disabled");
+     setTimeout(function() {document.getElementById('pw').focus();}, 500);
+		
+	}
+}
+
+function next1() {
+ if (document.getElementById('pw').value == "") {
+	 gogogo1();
+	}
+	else {
+	document.getElementById('pwchk').removeAttribute("disabled");
+	gogogo2();
+             setTimeout(function() {document.getElementById('pwchk').focus();}, 500);
+		
+	}
+}
+
+function next2() {
+ if (document.getElementById('pwchk').value == "") {
+	 gogogo2();
+	}
+	else if(document.getElementById('pwchk').value != document.getElementById('pw').value){
+		gogogo2();
+	}
+	else {
+	document.getElementById('name').removeAttribute("disabled");
+	gogogo3();
+     setTimeout(function() {document.getElementById('name').focus();}, 500);
+		
+	}
+}
+
+function next3() {
+ if (document.getElementById('name').value == "") {
+	 gogogo3();
+	}
+	else {
+	document.getElementById('gender').removeAttribute("disabled");
+     	gogogo4();
+        setTimeout(function() {document.getElementById('gender').focus();}, 500);    
+		
+	}
+}
+
+function next4() {
+ if (document.getElementById('gender').value == "") {
+	 gogogo4();
+	}
+	else {
+	document.getElementById('email').removeAttribute("disabled");
+	gogogo7();
+     setTimeout(function() {document.getElementById('email').focus();}, 500);
+		
+	}
+}
+
+function next5() {
+ if (document.getElementById('email').value == "") {
+	 gogogo7();
+	}
+	else {
+	document.getElementById('button1').removeAttribute("disabled");
+	document.getElementById('button2').removeAttribute("disabled");
+	 gogogo8();
+    setTimeout(function() {gogogo9();}, 500);
+    setTimeout(function() {gogogo10();}, 1200);
+    setTimeout(function() {document.getElementById('button1').focus();}, 1700);
+		
+	}
+}
+
+function onlyKorean(name) {
+var str=document.getElementById(name).value;
+for (i = 0; i < str.length; i++) {
+if (!((str.charCodeAt(i) > 0x3130 && str.charCodeAt(i) < 0x318F) || (str.charCodeAt(i) >= 0xAC00 && str.charCodeAt(i) <= 0xD7A3))) {
+document.getElementById(name).value=''; 
+} 
+} 
 }
