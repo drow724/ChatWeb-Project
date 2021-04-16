@@ -12,28 +12,25 @@
 <link href="css/style.css" type="text/css" rel="stylesheet" />
 <script src="js/board.js"></script>
 </head>
-<body>
+<body id="boardBody">
 <span id="title" class="title">
 	&nbsp;
 </span>
 <main class="main">
 				<div class="search-form margin-top first align-right">
 					<form class="table-form">
-							<select name="f">
+							<button class="boardSearch" type="submit">검색</button>
+							<input class="boardSearch" type="text" name="search"/>
+							<select class="boardSearch" name="searchOption">
 								<option value="title">제목</option>
 								<option value="writerId">작성자</option>
 							</select>
-							<input type="text" name="q" value="" />
-							<input class="btn btn-search" type="submit" value="검색" />
 					</form>
 				</div>
-				
-				<form action="list" method="post">
 					<div class="notice margin-top">
-						<h3 class="hidden">공지사항 목록</h3>
-						<table class="table">
+						<table class="boardTable">
 							<thead>
-								<tr>
+								<tr class="boardTable">
 									<th class="w60">번호</th>
 									<th class="expand">제목</th>
 									<th class="w100">작성자</th>
@@ -69,9 +66,8 @@
 					</div>
 	
 					<div class="text-align-right margin-top">
-						<a class="btn-text btn-default" href="write">글쓰기</a>				
+						<button class="btn-text btn-default" onclick="write();">글쓰기</button>				
 					</div>
-				</form>
 				<div class="margin-top align-center pager">	
 		
 				<div>
@@ -104,6 +100,7 @@
 			</main>
 <script>
 gogogo();
+document.getElementById("boardBody").style.backgroundColor = "#000000"
 </script>
 </body>
 </html>

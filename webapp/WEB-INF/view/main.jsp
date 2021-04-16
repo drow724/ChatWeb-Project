@@ -13,7 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
 <script src="js/main.js"></script>
 </head>
-<body>
+<body id="mainBody">
 <div>
 <button id="texts4" onclick="clickLogOut();" onkeyup="enterkeydown4();">&nbsp;</button>
 <span id="art" class="art">
@@ -36,6 +36,7 @@ setTimeout(function() {gogogo2()}, 1000);
 setTimeout(function() {gogogo3()}, 1500);
 setTimeout(function() {gogogo4()}, 2000);
 setTimeout(function() {focus()}, 2000);
+document.getElementById("mainBody").style.backgroundColor = "#000000"
 </script>
 </body>
 </html>

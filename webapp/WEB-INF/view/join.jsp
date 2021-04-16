@@ -8,7 +8,7 @@
 <link href="css/style.css" type="text/css" rel="stylesheet" />
 <script src="js/join.js"></script>
 </head>
-<body>
+<body id="joinBody">
 <form class="login-form" method="post" onsubmit="return false" name="joinInfo">
 <span id="texts">&nbsp;</span><br>
 <input id="id" onkeyup="enterkey();" oninput="handleOnInputId(this)" type="text" name="userID" autocomplete="off"/><br>
@@ -30,7 +30,7 @@
 <script>
 gogogo();
 setTimeout(function() {focus()}, 500);
-
+document.getElementById("joinBody").style.backgroundColor = "#000000"
 </script>
 </body>
 </html>

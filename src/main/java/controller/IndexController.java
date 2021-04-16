@@ -22,7 +22,7 @@ public class IndexController  extends HttpServlet {
 		String userID = null;
 		if(session.getAttribute("userID") != null) {
 			userID = (String) session.getAttribute("userID");
-			System.out.println("userID");
+			System.out.println(userID);
 		}
 		if(userID != null) {
 			request

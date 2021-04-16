@@ -66,7 +66,6 @@ public class JoinController  extends HttpServlet {
 			}
 			else {
 				session.setAttribute("userID", user.getUserID());
-				System.out.println(session.getAttribute("userID"));
 				PrintWriter script = response.getWriter();
 				script.println("<script>");
 				script.println("location.href = 'main'");

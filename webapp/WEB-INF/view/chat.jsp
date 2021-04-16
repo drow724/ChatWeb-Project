@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
 </head>
-<body>
+<body id="chatBody">
 
 	<textarea id="messageWindow" rows="10" cols="50" readonly="true"></textarea>
 	<br/>
@@ -91,6 +91,7 @@ function clickBack() {
 	location.href="main";
 
 }
+document.getElementById("chatBody").style.backgroundColor = "#000000"
 </script>
 </html>
 </html>

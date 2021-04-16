@@ -8,7 +8,7 @@
 <link href="css/style.css" type="text/css" rel="stylesheet" />
 <script src="js/login.js"></script>
 </head>
-<body>
+<body id="loginBody">
 <form class="login-form" method="post" action="login" name="loginInfo" onsubmit="return false">
 <span id="texts">&nbsp;</span><br>
 <input id="id" onkeydown="enterkey();" type="text" name="userID" autocomplete="off" /><br>
@@ -20,6 +20,7 @@
 <script>
 gogogo();
 setTimeout(function() {focus()}, 500);
+document.getElementById("loginBody").style.backgroundColor = "#000000"
 </script>
 </body>
 </html>

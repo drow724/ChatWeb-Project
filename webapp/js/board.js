@@ -62,3 +62,6 @@ function pressSubmit() {
              
         }
 }
+function write() {
+	location.href="write";
+}

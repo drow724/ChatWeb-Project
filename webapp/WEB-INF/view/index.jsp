@@ -10,9 +10,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
 <script src="js/index.js"></script>
 </head>
-<body>
+<body id="indexBody">
 <div>
-<span id="art" class="art">
+<span id="art" class="indexArt">
 &nbsp;
 </span>
 <span class="main">
@@ -30,6 +30,7 @@ gogogo();
 setTimeout(function() {gogogo1()}, 1000);
 setTimeout(function() {gogogo2()}, 1400);
 setTimeout(function() {focus()}, 2000);
+document.getElementById("indexBody").style.backgroundColor = "#000000"
 </script>
 </body>
 </html>

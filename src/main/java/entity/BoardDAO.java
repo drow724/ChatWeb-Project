@@ -52,8 +52,8 @@ public class BoardDAO {
 		return -1; // 데이터베이스 오류
 	}
 	
-	public int write(String boardTitle, String userID, String boardContent, int boardHit, String boardFiles) {
-		String SQL = "INSERT INTO BOARD VALUE (?, ?, ?, ?, ?, ?, ?)";
+	public int write(String boardTitle, String userID, String boardContent) {
+		String SQL = "INSERT INTO BOARD VALUES (?, ?, ?, ?, ?, ?, ?)";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			pstmt.setInt(1, getNext());
@@ -61,9 +61,8 @@ public class BoardDAO {
 			pstmt.setString(3, userID);
 			pstmt.setString(4, boardContent);
 			pstmt.setString(5, getDate());
-			pstmt.setInt(6, boardHit);
-			pstmt.setString(7, boardFiles);
-			rs = pstmt.executeQuery();
+			pstmt.setInt(6, 0);
+			pstmt.setString(7, "좀 있다");
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

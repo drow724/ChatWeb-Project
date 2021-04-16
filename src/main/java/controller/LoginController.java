@@ -50,7 +50,6 @@ public class LoginController  extends HttpServlet {
 		int result = userDAO.login(userID, userPassword);
 		if (result == 1) {
 			session.setAttribute("userID", userID);
-			System.out.println(session.getAttribute("userID"));
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("location.href = 'main'");
