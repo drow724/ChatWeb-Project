@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import entity.Board;
-import entity.BoardDAO;
 import entity.User;
 import entity.UserDAO;
+import service.WriteService;
 
 @WebServlet("/write")
 public class WriteController extends HttpServlet {
@@ -61,8 +61,8 @@ public class WriteController extends HttpServlet {
 			script.println("location.href = 'writeNullError'");
 			script.println("</script>");
 		}else {
-			BoardDAO boardDAO = new BoardDAO();
-			int result = boardDAO.write(boardTitle, userID, boardContent);
+			WriteService writeService = new WriteService();
+			int result = writeService.write(boardTitle, userID, boardContent);
 			if (result == -1) {
 				PrintWriter script = response.getWriter();
 				script.println("<script>");

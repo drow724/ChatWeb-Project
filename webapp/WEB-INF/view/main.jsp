@@ -31,10 +31,10 @@
 </div>
 <script>
 gogogo();
-setTimeout(function() {gogogo1()}, 500);
-setTimeout(function() {gogogo2()}, 1000);
-setTimeout(function() {gogogo3()}, 1500);
-setTimeout(function() {gogogo4()}, 2000);
+setTimeout(function() {gogogo4()}, 500);
+setTimeout(function() {gogogo1()}, 1000);
+setTimeout(function() {gogogo2()}, 1500);
+setTimeout(function() {gogogo3()}, 2000);
 setTimeout(function() {focus()}, 2000);
 document.getElementById("mainBody").style.backgroundColor = "#000000"
 </script>

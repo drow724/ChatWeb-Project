@@ -27,7 +27,7 @@
 		<input id="boardFiles" type="file" onkeypress="enterkeydown2()" name="boardFiles" /><br>
 		<textarea class="boardContent" onkeypress="enterkeydown3()" name="boardContent" maxlength="2048">
 		</textarea><br>
-		<button id="boardSubmit" onkeypress="enterkeydown3()" onclick="write()" type="submit"></button>
+		<button id="boardSubmit" onkeypress="enterkeydown3()" onclick="submit()" type="submit"></button>
 		<button id="boardBack" onkeypress="enterkeydown4()" onclick="back()"></button>
 	</form>
 <script>

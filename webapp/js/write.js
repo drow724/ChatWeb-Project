@@ -72,7 +72,7 @@ function enterkeydown3() {
         if (window.event.keyCode == 13) {
  
              // 엔터키가 눌렸을 때 실행할 내용
-             write();
+             submit();
         }
         
          else if (window.event.keyCode == 37 || window.event.keyCode == 38){ 
@@ -96,12 +96,6 @@ function enterkeydown4() {
 		else if (window.event.keyCode == 39 || window.event.keyCode == 40){ 
 			document.getElementById('boardBack').focus();
 		}
-}
-
-function write() {
-
-	writeInfo.submit();
-
 }
 
 function back() {

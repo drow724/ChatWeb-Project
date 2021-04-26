@@ -27,9 +27,6 @@ body{
     from, to { border-color: transparent }
     50% { border-color: black }
 }
-
-body { font-family: Consolas, monospace; }
-
 h1 { 
 	text-align: center;
 	font-size:6.0em;
@@ -179,10 +176,6 @@ input.boardSearch{
 }
 button.boardSearch{
 	float:right;
-	border: 1px solid;
-	border-color: lime;
-}
-table.boardTable{
 	border: 1px solid;
 	border-color: lime;
 }
@@ -435,3 +428,70 @@ input#boardFiles{
  span#boardFiles{
  	margin-left:2%;
  }
+ .boardTable{
+ 	width:100%;
+ 		border-bottom:3px solid lime
+ }
+ .noticemargin-top{
+ 	width:auto;
+	text-align: center;
+padding:1%;
+	height:auto;
+	
+ }
+.w100{
+  	border: 3px solid lime;
+
+
+ }
+.titleindenttext-align-left{
+	font-size: 2.3em;
+
+}
+.w60{
+	border: 3px solid lime;
+	margin-bottom:1%;
+}
+a{
+	       color: #00FF00;
+	       text-decoration: none;
+}
+a:focus{
+	       color: black;
+	       background-color:lime;
+	       text-decoration: none;
+}
+.expand{
+	border: 3px solid lime;
+}
+.btnbtn-prev{
+	color:lime;
+	text-decoration: none;
+	border:3px solid lime;
+	font-size:1.5em;
+	margin-left:1%;
+}
+.btnbtn-next{
+	color:lime;
+	text-decoration: none;
+	border:3px solid lime;
+	font-size:1.5em;
+	margin-left:1%;
+}
+.writeButton{
+	border:3px solid lime;
+	float:right;
+}
+.text-orangetext-strong{
+	text-align: center;
+	
+}
+.btnbtn-next{
+	border:3px solid lime;
+}
+.btnbtn-prev{
+	border:3px solid lime;
+}
+.indexermargin-topalign-right{
+	text-align: center;
+}

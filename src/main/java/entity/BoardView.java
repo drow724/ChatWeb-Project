@@ -18,8 +18,8 @@ public class BoardView extends Board {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public BoardView(int id, String title, Date regDate, String files, String writerId, String hit, boolean pub, int cmtCount) {
-		super(id, title, regDate, "", files, writerId, hit, pub);
+	public BoardView(int boardID, String boardTitle, String userID, String boardDate, int boardHit, String boardFiles, int cmtCount) {
+		super(boardID, boardTitle, userID, "", boardDate, boardHit, boardFiles);
 		this.cmtCount = cmtCount;
 	}
 

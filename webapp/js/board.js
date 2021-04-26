@@ -7,6 +7,9 @@ var timer1 = null;
 var speed2 = 50; //글자가 찍히는 속도
 var cnt2 = 0;
 var timer2 = null;
+var speed3 = 50; //글자가 찍히는 속도
+var cnt3 = 0;
+var timer3 = null;
 
 function focus(){
 
@@ -19,11 +22,11 @@ var text = "게시판";
     document.getElementById('title').innerHTML = text.substring(0, cnt) + "_";
     cnt++;
     timer = setTimeout('gogogo()', speed);
- 
+
 }
 
 function gogogo1() {
- text = "비밀번호를 입력하세요";	
+ text = "되돌아가기";	
  document.getElementById('texts1').innerHTML = text.substring(0, cnt1) + "_";
     cnt1++;
     timer1 = setTimeout('gogogo1()', speed1);
@@ -64,4 +67,11 @@ function pressSubmit() {
 }
 function write() {
 	location.href="write";
+}
+
+function clickBack() {
+	location.href="main";
+}
+function focus() {
+	document.getElementById('text5').focus();
 }
