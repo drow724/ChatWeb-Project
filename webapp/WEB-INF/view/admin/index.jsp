@@ -16,21 +16,11 @@
 <span id="art" class="indexArt">
 &nbsp;
 </span>
-<span class="main">
-    <button id="texts1" onclick="clickLogin();" onkeyup="enterkeyup();">&nbsp;</button>
-</span>
-<span class="main">   
-    <button id="texts2" onclick="clickJoin();" onkeyup="enterkeydown();">&nbsp;</button>
-</span>
 </div>
+<input id="adminPw" type="password" name="userID" autocomplete="off" maxlength="6"/><br>
 <script>
-document.documentElement.webkitRequestFullscreen();
-//mozRequestFullScreen : 파이어폭스
-//msRequestFullscreen : 인터넷익스플로러
 gogogo();
-setTimeout(function() {gogogo1()}, 1000);
-setTimeout(function() {gogogo2()}, 1400);
-setTimeout(function() {focus()}, 2000);
+setTimeout(function() {focus()}, 500);
 document.getElementById("indexBody").style.backgroundColor = "#000000"
 </script>
 </body>

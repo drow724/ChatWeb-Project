@@ -18,7 +18,7 @@ function focus(){
 }
 
 function gogogo(){
-var text = "게시판";	
+var text = "공지사항";	
     document.getElementById('title').innerHTML = text.substring(0, cnt) + "_";
     cnt++;
     timer = setTimeout('gogogo()', speed);

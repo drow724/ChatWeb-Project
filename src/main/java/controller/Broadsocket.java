@@ -33,7 +33,6 @@ public class Broadsocket extends HttpServlet{
 
 	@OnMessage
 	public void onMessage(String message, Session session) throws IOException {
-		System.out.println(message);
 		synchronized (clients) {
 			// Iterate over the connected sessions
 			// and broadcast the received message
@@ -48,7 +47,6 @@ public class Broadsocket extends HttpServlet{
 	@OnOpen
 	public void onOpen(Session session) {
 		// Add session to the connected sessions set
-		System.out.println(session);
 		clients.add(session);
 	}
 

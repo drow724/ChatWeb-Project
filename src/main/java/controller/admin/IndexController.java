@@ -1,4 +1,4 @@
-package controller;
+package controller.admin;
 
 import java.io.IOException;
 import java.util.Enumeration;
@@ -14,22 +14,12 @@ import javax.servlet.http.HttpSessionContext;
 
 import entity.User;
 
-@WebServlet("/index")
+@WebServlet("/admin/index")
 public class IndexController  extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		HttpSession session = request.getSession();
-
-		if(session.getAttribute("userID") != null) {
-			request
-			.getRequestDispatcher("/WEB-INF/view/main.jsp")
-			.forward(request, response);
-		}
-		else {
 		request
-		.getRequestDispatcher("/WEB-INF/view/index.jsp")
+		.getRequestDispatcher("/WEB-INF/view/admin/index.jsp")
 		.forward(request, response);
-		}
 	}	
 }

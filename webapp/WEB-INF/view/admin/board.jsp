@@ -27,6 +27,7 @@
 									<th class="expand">제목</th>
 									<th class="w100">작성자</th>
 									<th class="w100">조회수</th>
+									<th class="w60">선택</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -36,16 +37,17 @@
 									<td id="text5" class="titleindenttext-align-left"><a href="detail?id=${b.boardID}">${b.boardTitle}</a></td>
 									<td class="titleindenttext-align-left">${b.userID}</td>
 									<td class="titleindenttext-align-left"><fmt:formatNumber value="${b.boardHit}"/></td>
+									<td class="titleindenttext-align-left1"><input id="chk" name="del" value="${b.boardID}" type="checkbox"></td>
 								</tr>
 								</c:forEach>
 							</tbody>
 						</table>
 					</div>
-	
-				
+					<form method="post">
 					<div class="text-align-rightmargin-top">
-						<button onclick="clickWrite();" class="writeButton">글쓰기</button>				
+						<button onclick="submit();" class="writeButton">삭제</button>				
 					</div>
+					</form>
 				<div class="margin-top align-center pager">	
 				<c:set var="pageNumber" value="${pageNumber}" />
 				<c:set var="nextPage" value="${nextPage}" />

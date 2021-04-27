@@ -11,7 +11,7 @@
 <meta charset="UTF-8">
 <title>Chat Web</title>
 <link href="css/style.css" type="text/css" rel="stylesheet" />
-<script src="js/board.js"></script>
+<script src="js/notice.js"></script>
 </head>
 <body id="boardBody">
 <button id="texts1" onclick="clickBack();" onkeyup="enterkeydown4();">&nbsp;</button>
@@ -41,11 +41,7 @@
 							</tbody>
 						</table>
 					</div>
-	
-				
-					<div class="text-align-rightmargin-top">
-						<button onclick="clickWrite();" class="writeButton">글쓰기</button>				
-					</div>
+
 				<div class="margin-top align-center pager">	
 				<c:set var="pageNumber" value="${pageNumber}" />
 				<c:set var="nextPage" value="${nextPage}" />

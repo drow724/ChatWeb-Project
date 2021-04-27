@@ -43,6 +43,24 @@ public class UserDAO {
 		return -2; // 데이터 베이스 오류
 	}
 	
+	public String FindName(String userID) {
+		String SQL = "SELECT userName FROM USER WHERE userID = ?";
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, userID);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				User user = new User();
+				user.setUserName(rs.getString(1));
+				String userName = user.getUserName();
+				return userName;
+				}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;// 로그인 성공
+	}
+	
 	public int join(User user) {
 		String SQL = "INSERT INTO USER VALUES(?, ?, ?, ?, ?)";
 		try {

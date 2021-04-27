@@ -15,35 +15,24 @@
 </head>
 <body id="mainBody">
 <div>
-<button id="texts4" onclick="clickLogOut();" onkeyup="enterkeydown4();">&nbsp;</button>
-<span id="art" class="art">
-&nbsp;
-</span>
-<span class="main">
+<span class="adminMain">
     <button id="texts1" onclick="clickNotice();" onkeyup="enterkeydown1();">&nbsp;</button>
 </span>
-<span class="main">   
+<span class="adminMain">   
     <button id="texts2" onclick="clickBoard();" onkeyup="enterkeydown2();">&nbsp;</button>
 </span>
-<span class="main">   
+<span class="adminMain">   
     <button id="texts3" onclick="clickChat();" onkeyup="enterkeydown3();">&nbsp;</button>
+</span>
+<span class="adminMain">   
+    <button id="texts4" onclick="clickChat();" onkeyup="enterkeydown3();">&nbsp;</button>
 </span>
 </div>
 <script>
-var speed = 60; //글자가 찍히는 속도
-var cnt = 0;
-var timer = null;
-function gogogo(){
-	text = "환영합니다.<br>${userName}님";	
-	    document.getElementById('art').innerHTML = text.substring(0, cnt) + "_";
-	    cnt++;
-	    timer = setTimeout('gogogo()', speed);
-	}
 gogogo();
-setTimeout(function() {gogogo4()}, 500);
-setTimeout(function() {gogogo1()}, 1000);
-setTimeout(function() {gogogo2()}, 1500);
-setTimeout(function() {gogogo3()}, 2000);
+setTimeout(function() {gogogo1()}, 500);
+setTimeout(function() {gogogo2()}, 1000);
+setTimeout(function() {gogogo3()}, 1500);
 setTimeout(function() {focus()}, 2000);
 document.getElementById("mainBody").style.backgroundColor = "#000000"
 </script>

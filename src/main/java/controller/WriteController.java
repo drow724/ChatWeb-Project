@@ -23,20 +23,17 @@ public class WriteController extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		
-		String userID = null;
 		if(session.getAttribute("userID") != null) {
-			userID = (String) session.getAttribute("userID");
-		}
-		if(userID == null) {
+			request
+			.getRequestDispatcher("/WEB-INF/view/write.jsp")
+			.forward(request, response);
+
+		}else {
 			request
 			.getRequestDispatcher("/WEB-INF/view/index.jsp")
 			.forward(request, response);
-		}else {
-		request
-		.getRequestDispatcher("/WEB-INF/view/write.jsp")
-		.forward(request, response);
 	}
-	}
+}
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -54,8 +51,6 @@ public class WriteController extends HttpServlet {
 //		board.setBoardContent(boardContent);
 		
 		if (boardTitle == null || boardContent == null) {
-			System.out.println(boardTitle);
-			System.out.println(boardContent);
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("location.href = 'writeNullError'");

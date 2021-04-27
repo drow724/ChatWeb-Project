@@ -1,4 +1,6 @@
-
+var speed = 60; //글자가 찍히는 속도
+var cnt = 0;
+var timer = null;
 var speed1 = 30; //글자가 찍히는 속도
 var cnt1 = 0;
 var timer1 = null;
@@ -12,33 +14,32 @@ var speed4 = 30; //글자가 찍히는 속도
 var cnt4 = 0;
 var timer4 = null;
 
-
-function gogogo1(){
-text = "공지사항";	
+function gogogo(){
+text = "공지사항 관리";	
     document.getElementById('texts1').innerHTML = text.substring(0, cnt1) + "_";
     cnt1++;
-    timer1 = setTimeout('gogogo1()', speed1);
+    timer1 = setTimeout('gogogo()', speed1);
+}
+
+function gogogo1() {
+ text = "게시판 관리";	
+ document.getElementById('texts2').innerHTML = text.substring(0, cnt2) + "_";
+    cnt2++;
+    timer2 = setTimeout('gogogo1()', speed2);
 }
 
 function gogogo2() {
- text = "게시판";	
- document.getElementById('texts2').innerHTML = text.substring(0, cnt2) + "_";
-    cnt2++;
-    timer2 = setTimeout('gogogo2()', speed2);
+ text = "회원 관리";	
+ document.getElementById('texts3').innerHTML = text.substring(0, cnt3) + "_";
+    cnt3++;
+    timer3 = setTimeout('gogogo2()', speed3);
 }
 
 function gogogo3() {
- text = "채팅";	
- document.getElementById('texts3').innerHTML = text.substring(0, cnt3) + "_";
-    cnt3++;
-    timer3 = setTimeout('gogogo3()', speed3);
-}
-
-function gogogo4() {
- text = "로그아웃";	
+ text = "관리자 비밀번호 변경";	
  document.getElementById('texts4').innerHTML = text.substring(0, cnt4) + "_";
     cnt4++;
-    timer4 = setTimeout('gogogo4()', speed3);
+    timer4 = setTimeout('gogogo3()', speed3);
 }
 
 function clickNotice() {
@@ -49,12 +50,12 @@ function clickBoard() {
 	location.href="board";
 }
 
-function clickChat() {
-	location.href="chat";
+function clickReg() {
+	location.href="reg";
 }
 
-function clickLogOut() {
-	location.href="logout";
+function clickChange() {
+	location.href="change";
 }
 
 function enterkeydown1() {
