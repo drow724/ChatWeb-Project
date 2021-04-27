@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import entity.Board;
 import entity.User;
 import entity.UserDAO;
+import service.AdminService;
 import service.WriteService;
 
 @WebServlet("/admin/board")
@@ -38,43 +39,21 @@ public class BoardController  extends HttpServlet {
 	}
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String userID = request.getParameter("userID");
-		String userPassword =request.getParameter("userPassword");
-		String userName = request.getParameter("userName");
-		String userGender =request.getParameter("userGender");
-		String userEmail = request.getParameter("userEmail");
-		
-		User user = new User();
-		HttpSession session = request.getSession();
-		
-		user.setUserID(userID);
-		user.setUserPassword(userPassword);
-		user.setUserName(userName);
-		user.setUserGender(userGender);
-		user.setUserEmail(userEmail);
-		
-		if (userID == null || userPassword == null || userName == null || userGender == null || userEmail == null ) {
-			PrintWriter script = response.getWriter();
-			script.println("<script>");
-			script.println("location.href = 'joinError'");
-			script.println("</script>");
-		}else {
-			UserDAO userDAO = new UserDAO();
-			int result = userDAO.join(user);
-			if (result == -1) {
+		 int boardID = Integer.parseInt(request.getParameter("id"));
+		 
+		 AdminService adminService = new AdminService();
+		 int result = adminService.delete(boardID);
+		 if (result == -1) {
 				PrintWriter script = response.getWriter();
 				script.println("<script>");
-				script.println("location.href = 'overlapError'");
+				script.println("location.href = 'writeError'");
 				script.println("</script>");
 			}
 			else {
-				session.setAttribute("userID", user.getUserID());
-				PrintWriter script = response.getWriter();
-				script.println("<script>");
-				script.println("location.href = 'main'");
-				script.println("</script>");
+				 request.getRequestDispatcher("/WEB-INF/view/admin/board.jsp")
+					.forward(request, response);
 			}
 		
-		}
-	}
+		
+			}
 }

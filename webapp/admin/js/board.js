@@ -59,10 +59,6 @@ function enterkey1() {
         }
 }
 
-function clickWrite() {
-	location.href="write";
-}
-
 function clickBack() {
 	location.href="main";
 }

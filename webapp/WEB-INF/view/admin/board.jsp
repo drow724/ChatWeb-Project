@@ -37,17 +37,12 @@
 									<td id="text5" class="titleindenttext-align-left"><a href="detail?id=${b.boardID}">${b.boardTitle}</a></td>
 									<td class="titleindenttext-align-left">${b.userID}</td>
 									<td class="titleindenttext-align-left"><fmt:formatNumber value="${b.boardHit}"/></td>
-									<td class="titleindenttext-align-left1"><input id="chk" name="del" value="${b.boardID}" type="checkbox"></td>
+									<td class="titleindenttext-align-left1"><a href="delete?id=${b.boardID}" class="writeButton">삭제</a></td>
 								</tr>
 								</c:forEach>
 							</tbody>
 						</table>
 					</div>
-					<form method="post">
-					<div class="text-align-rightmargin-top">
-						<button onclick="submit();" class="writeButton">삭제</button>				
-					</div>
-					</form>
 				<div class="margin-top align-center pager">	
 				<c:set var="pageNumber" value="${pageNumber}" />
 				<c:set var="nextPage" value="${nextPage}" />
@@ -71,7 +66,7 @@
 gogogo();
 setTimeout(function() {gogogo1()}, 500);
 setTimeout(function() {focus()}, 1000);
-document.getElementById("boardBody").style.backgroundColor = "#000000"
+document.getElementById("boardBody").style.backgroundColor = "#000000";
 </script>
 </body>
 </html>
