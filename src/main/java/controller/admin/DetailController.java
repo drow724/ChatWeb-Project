@@ -18,14 +18,21 @@ import service.WriteService;
 public class DetailController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		   int boardId = Integer.parseInt(request.getParameter("id"));
-		   WriteService service = new WriteService();
-		   Board board = service.getBoard(boardId);
-		   ArrayList<Comment> list = service.getCommentList(boardId);
-		   
-		   request.setAttribute("board", board);
-		   request.setAttribute("list", list);
-			request.getRequestDispatcher("/WEB-INF/view/admin/detail.jsp").forward(request, response);
+		HttpSession session = request.getSession();
+		if(session.getAttribute("Admin") == "½ÂÀÎ") {
+			int boardId = Integer.parseInt(request.getParameter("id"));
+			   WriteService service = new WriteService();
+			   Board board = service.getBoard(boardId);
+			   ArrayList<Comment> list = service.getCommentList(boardId);
+			   
+			   request.setAttribute("board", board);
+			   request.setAttribute("list", list);
+				request.getRequestDispatcher("/WEB-INF/view/admin/detail.jsp").forward(request, response);
+		} else {
+			request
+			.getRequestDispatcher("/WEB-INF/view/admin/index.jsp")
+			.forward(request, response);
+		}
 	}
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

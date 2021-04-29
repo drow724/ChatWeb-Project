@@ -16,26 +16,21 @@
 <span id="title" class="title" style="opacity:0.3;">
 	&nbsp;
 </span>
-	<form id="writeForm"method="post" name="writeInfo" enctype="multipart/form-data" onsubmit="return false" style="opacity:0.3;">
+	<form id="writeForm"method="post" name="writeInfo" onsubmit="return false" style="opacity:0.3;">
 		<span id="boardTitle">
 		&nbsp;
 		</span>
-		<input id="boardTitleInput" onkeyup="enterkeydown1();" type="text" name="boardTitle" autocomplete="off"  onsubmit="return false"><br>
-		<span id="boardFiles">
-		&nbsp;
-		</span>
-		<input id="boardFiles" type="file" onkeypress="enterkeydown2()" name="boardFiles" /><br>
-		<input id="boardFiles" type="file" onkeypress="enterkeydown2()" name="boardFiles" /><br>
-		<textarea class="boardContent" onkeypress="enterkeydown3()" name="boardContent" maxlength="2048">
+		<input id="boardTitleInput" onkeyup="enterkeydown1();" type="text" name="noticeTitle" autocomplete="off"  onsubmit="return false"><br>
+		<textarea class="boardContent" onkeypress="enterkeydown3()" name="noticeContent" maxlength="2048">
 		</textarea><br>
-		<button id="boardSubmit" onkeypress="enterkeydown3()" onclick="submit()" type="submit"></button>
 		<button id="boardBack" onkeypress="enterkeydown4()" onclick="back()"></button>
+		<button id="boardSubmit" onkeypress="enterkeydown3()" onclick="submit()" type="submit"></button>
+		<input id="noticeAvailable" type="checkbox" value="1" name="noticeAvailable"> 공개(미 체크시 비공개)
 	</form>
 <script>
 gogogo();
 
 setTimeout(function() {gogogo1()}, 500);
-setTimeout(function() {gogogo2()}, 700);
 setTimeout(function() {gogogo3()}, 900);
 setTimeout(function() {gogogo4()}, 1100);
 setTimeout(function() {document.getElementById("writeForm").removeAttribute("style")}, 1100);

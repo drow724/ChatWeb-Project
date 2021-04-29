@@ -17,7 +17,8 @@
 &nbsp;
 </span>
 </div>
-<input id="adminPw" type="password" name="userID" autocomplete="off" maxlength="6"/><br>
+<input id="adminPw" type="password" name="password" autocomplete="off" maxlength="6" onkeypress="adminLogin()"/>
+<br>
 <script>
 gogogo();
 setTimeout(function() {focus()}, 500);

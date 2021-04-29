@@ -22,22 +22,6 @@
 		&nbsp;
 </span>
 <br>
-<span id="DetailBoardFiles">
- 
-</span>
- <td colspan="3">
-        <c:forTokens var="fileName" items="${board.boardFiles}" delims="," varStatus="st">
-		<c:set var="style" value=""></c:set>
-		<c:if test="${fn:endsWith(fileName, '.zip') }">
-			<c:set var="style" value="font-weight: bold; color:red;"></c:set>
-		</c:if>
-		<a download href="upload/${fileName}" style="${style}">${fn:toUpperCase(fileName)}</a>
-		<c:if test="${! st.last}">
-		/
-		</c:if>
-		</c:forTokens>
-                        </td>
-<br>
 <div id="detailBoardContent">
 <span id="detailBoardContent">
 </span>
@@ -46,23 +30,6 @@
 <span id="DetailComment">
 		&nbsp;
 </span>
-	<table class="commentTable">
-							<tbody>
-									<c:forEach var="b" items="${list}" begin="0" end="4">
-								<tr>
-									<td class="titleindenttext-align-left">${b.userID}</td>
-                            </tr>
-									<td id="text5" class="titleindenttext-align-left">${b.commentContent}</td>
-									<td class="titleindenttext-align-left">${b.commentDate}</td>
-								</c:forEach>
-							</tbody>
-						</table>
-<form method="post">
-<textarea name="id" style="display:none">${board.boardID}</textarea>
-<textarea id="detailContent" name="detailContent" rows="1" cols="3" maxlength="2048"></textarea><br>
-<button id="comment" onkeypress="enterkeydown4()" onclick="submit();">&nbsp;</button>
-</form>
-
 <script>
 var speed = 50; //글자가 찍히는 속도
 var cnt = 0;
@@ -82,29 +49,25 @@ var timer4 = null;
 var speed5 = 50; //글자가 찍히는 속도
 var cnt5 = 0;
 var timer5 = null;
-var speed6 = 50; //글자가 찍히는 속도
-var cnt6 = 0;
-var timer6 = null;
 function clickBack() {
-	location.href="board";
+	location.href="notice";
 }
 function gogogo(){
-	var text = "${board.boardTitle}";	
+	var text = "${notice.noticeTitle}";	
 	    document.getElementById('detailBoardTitle').innerHTML = text.substring(0, cnt) + "_";
 	    cnt++;
 	    timer = setTimeout('gogogo()', speed);
-
 	}
 
 	function gogogo1() {
-	 text = "작성자 : ${board.userID}";	
+	 text = "작성일 : ${notice.noticeDate}";	
 	 document.getElementById('DetailUserID').innerHTML = text.substring(0, cnt1) + "_";
 	    cnt1++;
 	    timer1 = setTimeout('gogogo1()', speed1);
 	}
 
 	function gogogo2() {
-	 text = "${board.boardContent}";	
+	 text = "${notice.noticeContent}";	
 	 document.getElementById('detailBoardContent').innerHTML = text.substring(0, cnt2) + "_";
 	    cnt2++;
 	    timer2 = setTimeout('gogogo2()', speed2);
@@ -115,36 +78,10 @@ function gogogo(){
 		    cnt3++;
 		    timer3 = setTimeout('gogogo3()', speed3);
 		}
-	function gogogo4() {
-		 text = "등록";	
-		 document.getElementById('comment').innerHTML = text.substring(0, cnt4) + "_";
-		    cnt4++;
-		    timer4 = setTimeout('gogogo4()', speed);
-		}
-	function gogogo5() {
-		 text = "댓글";	
-		 document.getElementById('DetailComment').innerHTML = text.substring(0, cnt5) + "_";
-		    cnt5++;
-		    timer5 = setTimeout('gogogo5()', speed);
-		}
-	function gogogo6() {
-		 text = "첨부파일";
-		 document.getElementById('DetailBoardFiles').innerHTML = text.substring(0, cnt6) + "_";
-		    cnt6++;
-		    timer6 = setTimeout('gogogo6()', speed);
-		}
-	function comment(){
-
-		location.href="comment?id=${boardID}";
-
-	}
 gogogo();
 gogogo1();
 gogogo2();
 gogogo3();
-gogogo4();
-gogogo5();
-gogogo6();
 document.getElementById("titleBody").style.backgroundColor = "#000000";
 </script>
 </body>

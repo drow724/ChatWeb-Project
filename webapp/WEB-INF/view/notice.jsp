@@ -25,17 +25,15 @@
 								<tr class="boardTable">
 									<th class="w60">번호</th>
 									<th class="expand">제목</th>
-									<th class="w100">작성자</th>
-									<th class="w100">조회수</th>
+									<th class="w60">작성일</th>
 								</tr>
 							</thead>
 							<tbody>
 									<c:forEach var="b" items="${list}" begin="0" end="9">
 								<tr>
-									<td class="titleindenttext-align-left">${b.boardID}</td>
-									<td id="text5" class="titleindenttext-align-left"><a href="detail?id=${b.boardID}">${b.boardTitle}</a></td>
-									<td class="titleindenttext-align-left">${b.userID}</td>
-									<td class="titleindenttext-align-left"><fmt:formatNumber value="${b.boardHit}"/></td>
+									<td class="titleindenttext-align-left">${b.noticeID}</td>
+									<td id="text5" class="titleindenttext-align-left"><a href="noticeDetail?id=${b.noticeID}">${b.noticeTitle}</a></td>
+									<td class="titleindenttext-align-left">${b.noticeDate}</td>
 								</tr>
 								</c:forEach>
 							</tbody>

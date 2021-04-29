@@ -33,7 +33,7 @@ public class AdminService {
 	}
 	
 	public int getNext() {
-		String SQL = "SELECT boardID FROM BOARD ORDER BY boardID DESC";
+		String SQL = "SELECT noticeID FROM NOTICE ORDER BY noticeID DESC";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			rs = pstmt.executeQuery();
@@ -67,6 +67,170 @@ public class AdminService {
 		}
 		return -1; // 데이터베이스 오류
 	}
+	
+	public int deleteNotice(int noticeID) {
+		
+		String SQL = "DELETE FROM NOTICE WHERE noticeID = ?;";
+		
+		String dbURL = "jdbc:mysql://localhost:3308/CHAT";
+		String dbID = "root";
+		String dbPassword = "0000";
 
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1,noticeID);
+			
+			return pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -1; // 데이터베이스 오류
+	}
+	
+	public int changeNotice(int noticeID) {
+		
+		String SQL = "UPDATE NOTICE SET noticeAvailable = IF(noticeAvailable = 0, '1', '0') WHERE noticeID = ?;";
+		
+		String dbURL = "jdbc:mysql://localhost:3308/CHAT";
+		String dbID = "root";
+		String dbPassword = "0000";
+
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1,noticeID);
+			
+			return pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -1; // 데이터베이스 오류
+	}
+
+	public int noticeWrite(String noticeTitle, int noticeAvailable, String noticeContent) {
+		
+		String SQL = "INSERT INTO NOTICE VALUES (?, ?, ?, ?, ?)";
+		
+		String dbURL = "jdbc:mysql://localhost:3308/CHAT";
+		String dbID = "root";
+		String dbPassword = "0000";
+
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			
+			pstmt.setInt(1, getNext());
+			pstmt.setString(2, noticeTitle);
+			pstmt.setString(3, getDate());
+			pstmt.setString(4, noticeContent);
+			pstmt.setInt(5, noticeAvailable);
+			
+			return pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -1; // 데이터베이스 오류
+	}
+	public ArrayList<Notice> getNoticeList(int pageNumber){
+		String SQL = "SELECT * FROM NOTICE WHERE noticeID < ? ORDER BY noticeID DESC LIMIT 10;";
+		
+		String dbURL = "jdbc:mysql://localhost:3308/CHAT";
+		String dbID = "root";
+		String dbPassword = "0000";
+		
+		ArrayList<Notice> list = new ArrayList<Notice>();
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, getNext() - (pageNumber - 1) * 10);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Notice notice = new Notice();
+				notice.setNoticeID(rs.getInt(1));
+				notice.setNoticeTitle(rs.getString(2));
+				notice.setNoticeDate(rs.getString(3));
+				notice.setNoticeContent(rs.getString(4));
+				notice.setNoticeAvailable(rs.getInt(5));
+				list.add(notice);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list; // 데이터베이스 오류
+	}
+
+	public Notice getNotice(int noticeID) {
+		String SQL = "SELECT * FROM NOTICE WHERE noticeID = ?;";
+		String dbURL = "jdbc:mysql://localhost:3308/CHAT";
+		String dbID = "root";
+		String dbPassword = "0000";
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, noticeID);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				Notice notice = new Notice();
+				notice.setNoticeID(rs.getInt(1));
+				notice.setNoticeTitle(rs.getString(2));
+				notice.setNoticeDate(rs.getString(3));
+				notice.setNoticeContent(rs.getString(4));
+				notice.setNoticeAvailable(rs.getInt(5));
+				return notice;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null; // 데이터베이스 오류
+	}
+	public int nextPage(int pageNumber) {
+		String SQL = "SELECT * FROM NOTICE WHERE noticeID < ? ORDER BY noticeID DESC LIMIT 10";
+		String dbURL = "jdbc:mysql://localhost:3308/CHAT";
+		String dbID = "root";
+		String dbPassword = "0000";
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, getNext() - (pageNumber - 1) * 10);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				return 1;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0; // 데이터베이스 오류
+	}
+	public int adminLogin(int password) {
+		String SQL = "SELECT password FROM ADMIN WHERE password = ?";
+		String dbURL = "jdbc:mysql://localhost:3308/CHAT";
+		String dbID = "root";
+		String dbPassword = "0000";
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, password);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				if(rs.getInt(1) == password) {
+					return 1;// 로그인 성공
+				}
+				else
+					return 0; //비밀번호 불일치
+			}
+			return -1; //아이디 없음
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -2; // 데이터 베이스 오류
+	}
 }
 

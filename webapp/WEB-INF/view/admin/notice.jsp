@@ -25,17 +25,21 @@
 								<tr class="boardTable">
 									<th class="w60">번호</th>
 									<th class="expand">제목</th>
-									<th class="w100">작성자</th>
-									<th class="w100">조회수</th>
+									<th class="w100">작성일</th>
+									<th class="w100">공개여부</th>
+									<th class="w100">선택</th>
+									<th class="w100">선택</th>
 								</tr>
 							</thead>
 							<tbody>
 									<c:forEach var="b" items="${list}" begin="0" end="9">
 								<tr>
-									<td class="titleindenttext-align-left">${b.boardID}</td>
-									<td id="text5" class="titleindenttext-align-left"><a href="detail?id=${b.boardID}">${b.boardTitle}</a></td>
-									<td class="titleindenttext-align-left">${b.userID}</td>
-									<td class="titleindenttext-align-left"><fmt:formatNumber value="${b.boardHit}"/></td>
+									<td class="titleindenttext-align-left">${b.noticeID}</td>
+									<td id="text5" class="titleindenttext-align-left"><a href="noticeDetail?id=${b.noticeID}">${b.noticeTitle}</a></td>
+									<td class="titleindenttext-align-left">${b.noticeDate}</td>
+									<td id ="available" class="titleindenttext-align-left"><fmt:formatNumber value="${b.noticeAvailable}"/></td>
+									<td class="titleindenttext-align-left1"><a href="changeNotice?id=${b.noticeID}" class="writeButton">공개 변경</a></td>
+									<td class="titleindenttext-align-left1"><a href="deleteNotice?id=${b.noticeID}" class="writeButton">삭제</a></td>
 								</tr>
 								</c:forEach>
 							</tbody>
@@ -63,11 +67,19 @@
 				</div>
 						</div>
 			</main>
-<script>
+<script type="text/javascript">
 gogogo();
+available();
 setTimeout(function() {gogogo1()}, 500);
 setTimeout(function() {focus()}, 1000);
+setTimeout(function() {available()}, 1);
 document.getElementById("boardBody").style.backgroundColor = "#000000"
+function available() {
+	if(document.getElementById("available").value === 1){
+		document.getElementById("available").value = "공개"
+	}
+	
+}
 </script>
 </body>
 </html>

@@ -12,21 +12,23 @@ import javax.servlet.http.HttpSession;
 
 import entity.Board;
 import entity.Notice;
+import service.AdminService;
 import service.WriteService;
 
 @WebServlet("/admin/notice")
 public class NoticeController  extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		HttpSession session = request.getSession();
+		if(session.getAttribute("Admin") == "½ÂÀÎ") {
 			int pageNumber = 1;
 			if(request.getParameter("pageNumber") != null) {
 				pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
 			}
 			
-			WriteService service = new WriteService();
-			ArrayList<Notice> list = service.getNoticeList(pageNumber);
-			int nextPage = service.nextPage(pageNumber + 1);
+			AdminService adminService = new AdminService();
+			ArrayList<Notice> list = adminService.getNoticeList(pageNumber);
+			int nextPage = adminService.nextPage(pageNumber + 1);
 			
 			request.setAttribute("list", list);
 			request.setAttribute("pageNumber", pageNumber);
@@ -35,5 +37,11 @@ public class NoticeController  extends HttpServlet {
 			request.getRequestDispatcher("/WEB-INF/view/admin/notice.jsp")
 			.forward(request, response);
 		
+		} else {
+			request
+			.getRequestDispatcher("/WEB-INF/view/admin/index.jsp")
+			.forward(request, response);
+		}
+			
 	}
 }

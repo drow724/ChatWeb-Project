@@ -15,47 +15,20 @@ text = "관리자 비밀번호를 입력해 주세요!";
     timer = setTimeout('gogogo()', speed);
 }
 
-function clickLogin() {
-	location.href="login";
-}
+function adminLogin() {
 
-function clickJoin() {
-	location.href="join";
-}
-
-function enterkeyup() {
-        if (window.event.keyCode == 13) {
+           if (window.event.keyCode == 13) {
  
              // 엔터키가 눌렸을 때 실행할 내용
              login();
         }
-        
-         else if (window.event.keyCode == 39 || window.event.keyCode == 40){ 
-			document.getElementById('texts2').focus();
-	}
+       
 }
 
-function enterkeydown() {
-        if (window.event.keyCode == 13) {
- 
-             // 엔터키가 눌렸을 때 실행할 내용
-             join();
-        }
-        
-         else if (window.event.keyCode == 37 || window.event.keyCode == 38){ 
-			document.getElementById('texts1').focus();
-	}
-}
 
 function login() {
 
-location.href="login";
-
-}
-
-function join() {
-
-location.href="join";
+	location.href="adminLogin?password=" + document.getElementById('adminPw').value;
 
 }
 

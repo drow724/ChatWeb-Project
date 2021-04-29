@@ -47,7 +47,7 @@ public class WriteService {
 		return -1; // 데이터베이스 오류
 	}
 	
-	public int write(String boardTitle, String userID, String boardContent) {
+	public int write(String boardTitle, String userID, String boardContent, String boardFiles) {
 		
 		String SQL = "INSERT INTO BOARD VALUES (?, ?, ?, ?, ?, ?, ?)";
 		
@@ -66,7 +66,7 @@ public class WriteService {
 			pstmt.setString(4, boardContent);
 			pstmt.setString(5, getDate());
 			pstmt.setInt(6, 0);
-			pstmt.setString(7, "좀 있다");
+			pstmt.setString(7, boardFiles);
 			
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
@@ -95,8 +95,9 @@ public class WriteService {
 				board.setBoardTitle(rs.getString(2));
 				board.setUserID(rs.getString(3));
 				board.setBoardContent(rs.getString(4));
-				board.setBoardFiles(rs.getString(5));
-				board.setBoardDate(rs.getString(6));
+				board.setBoardDate(rs.getString(5));
+				board.setBoardHit(rs.getInt(6));
+				board.setBoardFiles(rs.getString(7));
 				list.add(board);
 			}
 		} catch (Exception e) {
@@ -142,8 +143,9 @@ public class WriteService {
 				board.setBoardTitle(rs.getString(2));
 				board.setUserID(rs.getString(3));
 				board.setBoardContent(rs.getString(4));
-				board.setBoardFiles(rs.getString(5));
-				board.setBoardDate(rs.getString(6));
+				board.setBoardDate(rs.getString(5));
+				board.setBoardHit(rs.getInt(6));
+				board.setBoardFiles(rs.getString(7));
 				return board;
 			}
 		} catch (Exception e) {
@@ -206,8 +208,8 @@ public class WriteService {
 		return list; // 데이터베이스 오류
 	}
 	
-	public ArrayList<Notice> getNoticeList(int noticeID){
-		String SQL = "SELECT * FROM NOTICE WHERE noticeID < ? ORDER BY noticeID DESC LIMIT 10;";
+	public ArrayList<Notice> getNoticeList(int pageNumber){
+		String SQL = "SELECT * FROM NOTICE WHERE noticeID < ? AND noticeAvailable = 1 ORDER BY noticeID DESC LIMIT 10;";
 		
 		String dbURL = "jdbc:mysql://localhost:3308/CHAT";
 		String dbID = "root";
@@ -218,7 +220,7 @@ public class WriteService {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
-			pstmt.setInt(1, noticeID);
+			pstmt.setInt(1, getNext() - (pageNumber - 1) * 10);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				Notice notice = new Notice();
@@ -233,6 +235,32 @@ public class WriteService {
 			e.printStackTrace();
 		}
 		return list; // 데이터베이스 오류
+	}
+
+	public Notice getNotice(int noticeID) {
+		String SQL = "SELECT * FROM NOTICE WHERE noticeID = ?;";
+		String dbURL = "jdbc:mysql://localhost:3308/CHAT";
+		String dbID = "root";
+		String dbPassword = "0000";
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, noticeID);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				Notice notice = new Notice();
+				notice.setNoticeID(rs.getInt(1));
+				notice.setNoticeTitle(rs.getString(2));
+				notice.setNoticeDate(rs.getString(3));
+				notice.setNoticeContent(rs.getString(4));
+				notice.setNoticeAvailable(rs.getInt(5));
+				return notice;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null; // 데이터베이스 오류
 	}
 }
 
