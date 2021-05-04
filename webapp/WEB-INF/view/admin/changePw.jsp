@@ -8,7 +8,7 @@
 <link href="css/style.css" type="text/css" rel="stylesheet" />
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
-<script src="js/index.js"></script>
+<script src="js/changePw.js"></script>
 </head>
 <body id="indexBody">
 
@@ -16,22 +16,14 @@
 <span id="art" class="indexArt">
 &nbsp;
 </span>
-<span class="main">
-    <button id="texts1" onclick="clickLogin();" onkeyup="enterkeyup();">&nbsp;</button>
-</span>
-<span class="main">   
-    <button id="texts2" onclick="clickJoin();" onkeyup="enterkeydown();">&nbsp;</button>
-</span>
-<span class="main">   
-    <button id="texts3" onclick="find();" onkeyup="enterkeydown2();">&nbsp;</button>
-</span>
 </div>
+<form method="post" action="changePw">
+<input id="adminPw" type="password" name="password" autocomplete="off" maxlength="6" onkeypress="adminLogin()"/>
+</form>
+<br>
 <script>
 gogogo();
-setTimeout(function() {gogogo1()}, 1000);
-setTimeout(function() {gogogo2()}, 1400);
-setTimeout(function() {gogogo3()}, 1800);
-setTimeout(function() {focus()}, 2000);
+setTimeout(function() {focus()}, 500);
 document.getElementById("indexBody").style.backgroundColor = "#000000"
 </script>
 </body>

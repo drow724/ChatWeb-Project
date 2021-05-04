@@ -55,19 +55,15 @@ function clickReg() {
 }
 
 function clickChange() {
-	location.href="change";
+	location.href="checkPw";
 }
 
 function enterkeydown1() {
         if (window.event.keyCode == 13) {
  
              // 엔터키가 눌렸을 때 실행할 내용
-             notice();
+             clickNotice();
         }
-        
-         else if (window.event.keyCode == 37 || window.event.keyCode == 38){ 
-			document.getElementById('texts4').focus();
-	}
 			else if (window.event.keyCode == 39 || window.event.keyCode == 40){ 
 			document.getElementById('texts2').focus();
 	}
@@ -77,7 +73,7 @@ function enterkeydown2() {
         if (window.event.keyCode == 13) {
  
              // 엔터키가 눌렸을 때 실행할 내용
-             join();
+             clickBoard();
         }
         
          else if (window.event.keyCode == 37 || window.event.keyCode == 38){ 
@@ -92,48 +88,27 @@ function enterkeydown3() {
         if (window.event.keyCode == 13) {
  
              // 엔터키가 눌렸을 때 실행할 내용
-             chat();
+             clickReg();
         }
         
-         else if (window.event.keyCode == 37 || window.event.keyCode == 38){ 
+        else if (window.event.keyCode == 37 || window.event.keyCode == 38){ 
 			document.getElementById('texts2').focus();
 	}
+		else if (window.event.keyCode == 39 || window.event.keyCode == 40){ 
+			document.getElementById('texts4').focus();
+		}
 }
 
 function enterkeydown4() {
         if (window.event.keyCode == 13) {
  
              // 엔터키가 눌렸을 때 실행할 내용
-             logout();
+             clickChange();
         }
         
-         else if (window.event.keyCode == 39 || window.event.keyCode == 40){ 
-			document.getElementById('texts1').focus();
+        else if (window.event.keyCode == 37 || window.event.keyCode == 38){ 
+			document.getElementById('texts3').focus();
 	}
-}
-
-function login() {
-
-location.href="notice";
-
-}
-
-function board() {
-
-location.href="board";
-
-}
-
-function chat() {
-
-location.href="chat";
-
-}
-
-function logout() {
-
-location.href="logout";
-
 }
 
 function focus(){

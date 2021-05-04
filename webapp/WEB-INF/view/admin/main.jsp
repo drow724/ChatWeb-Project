@@ -22,10 +22,10 @@
     <button id="texts2" onclick="clickBoard();" onkeyup="enterkeydown2();">&nbsp;</button>
 </span>
 <span class="adminMain">   
-    <button id="texts3" onclick="clickChat();" onkeyup="enterkeydown3();">&nbsp;</button>
+    <button id="texts3" onclick="clickReg();" onkeyup="enterkeydown3();">&nbsp;</button>
 </span>
 <span class="adminMain">   
-    <button id="texts4" onclick="clickChat();" onkeyup="enterkeydown3();">&nbsp;</button>
+    <button id="texts4" onclick="clickChange();" onkeyup="enterkeydown4();">&nbsp;</button>
 </span>
 </div>
 <script>

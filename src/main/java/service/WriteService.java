@@ -13,6 +13,7 @@ import entity.Board;
 import entity.BoardView;
 import entity.Comment;
 import entity.Notice;
+import entity.User;
 
 public class WriteService {
 	private Connection conn;
@@ -256,6 +257,30 @@ public class WriteService {
 				notice.setNoticeContent(rs.getString(4));
 				notice.setNoticeAvailable(rs.getInt(5));
 				return notice;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null; // 데이터베이스 오류
+	}
+	
+	public User getFind(String userEmail, String userName) {
+		String SQL = "SELECT * FROM USER WHERE userEmail = ? and userName =?;";
+		String dbURL = "jdbc:mysql://localhost:3308/CHAT";
+		String dbID = "root";
+		String dbPassword = "0000";
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, userEmail);
+			pstmt.setString(2, userName);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				User user = new User();
+				user.setUserID(rs.getString(1));
+				user.setUserPassword(rs.getString(2));
+				return user;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

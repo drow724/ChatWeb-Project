@@ -42,6 +42,24 @@ public class UserDAO {
 		}
 		return -2; // 데이터 베이스 오류
 	}
+	public int find(String userEmail, String userName) {
+		String SQL = "SELECT userID, userPassword FROM USER WHERE userEmail = ? and userName = ?";
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, userEmail);
+			pstmt.setString(2, userName);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				User user = new User();
+				user.setUserID(rs.getString(1));
+				user.setUserPassword(rs.getString(2));
+				return 1;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0; // 데이터베이스 오류
+	}
 	
 	public String FindName(String userID) {
 		String SQL = "SELECT userName FROM USER WHERE userID = ?";

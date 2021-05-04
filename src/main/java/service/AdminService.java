@@ -89,9 +89,30 @@ public class AdminService {
 		return -1; // 데이터베이스 오류
 	}
 	
-	public int changeNotice(int noticeID) {
+	public int changeNotice(int Password) {
 		
 		String SQL = "UPDATE NOTICE SET noticeAvailable = IF(noticeAvailable = 0, '1', '0') WHERE noticeID = ?;";
+
+		String dbURL = "jdbc:mysql://localhost:3308/CHAT";
+		String dbID = "root";
+		String dbPassword = "0000";
+
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1,Password);
+			
+			return pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -1; // 데이터베이스 오류
+	}
+
+	public int changePw(int password) {
+		
+		String SQL = "UPDATE admin SET password = ?;";
 		
 		String dbURL = "jdbc:mysql://localhost:3308/CHAT";
 		String dbID = "root";
@@ -101,7 +122,7 @@ public class AdminService {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
-			pstmt.setInt(1,noticeID);
+			pstmt.setInt(1,password);
 			
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
@@ -135,6 +156,7 @@ public class AdminService {
 		}
 		return -1; // 데이터베이스 오류
 	}
+	
 	public ArrayList<Notice> getNoticeList(int pageNumber){
 		String SQL = "SELECT * FROM NOTICE WHERE noticeID < ? ORDER BY noticeID DESC LIMIT 10;";
 		
@@ -189,6 +211,7 @@ public class AdminService {
 		}
 		return null; // 데이터베이스 오류
 	}
+	
 	public int nextPage(int pageNumber) {
 		String SQL = "SELECT * FROM NOTICE WHERE noticeID < ? ORDER BY noticeID DESC LIMIT 10";
 		String dbURL = "jdbc:mysql://localhost:3308/CHAT";
@@ -208,6 +231,7 @@ public class AdminService {
 		}
 		return 0; // 데이터베이스 오류
 	}
+	
 	public int adminLogin(int password) {
 		String SQL = "SELECT password FROM ADMIN WHERE password = ?";
 		String dbURL = "jdbc:mysql://localhost:3308/CHAT";
