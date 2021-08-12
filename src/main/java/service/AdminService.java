@@ -51,9 +51,9 @@ public class AdminService {
 		
 		String SQL = "DELETE FROM BOARD WHERE boardID = ?;";
 		
-		String dbURL = "jdbc:mysql://34.64.253.179:3306/chat";
-		String dbID = "song";
-		String dbPassword = "!!Aa119562";
+		String dbURL = "";
+		String dbID = "";
+		String dbPassword = "";
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -72,9 +72,9 @@ public class AdminService {
 		
 		String SQL = "DELETE FROM NOTICE WHERE noticeID = ?;";
 		
-		String dbURL = "jdbc:mysql://34.64.253.179:3306/chat";
-		String dbID = "song";
-		String dbPassword = "!!Aa119562";
+		String dbURL = "";
+		String dbID = "";
+		String dbPassword = "";
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -93,9 +93,9 @@ public class AdminService {
 		
 		String SQL = "UPDATE NOTICE SET noticeAvailable = IF(noticeAvailable = 0, '1', '0') WHERE noticeID = ?;";
 
-		String dbURL = "jdbc:mysql://34.64.253.179:3306/chat";
-		String dbID = "song";
-		String dbPassword = "!!Aa119562";
+		String dbURL = "";
+		String dbID = "";
+		String dbPassword = "";
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -114,9 +114,9 @@ public class AdminService {
 		
 		String SQL = "UPDATE admin SET password = ?;";
 		
-		String dbURL = "jdbc:mysql://34.64.253.179:3306/chat";
-		String dbID = "song";
-		String dbPassword = "!!Aa119562";
+		String dbURL = "";
+		String dbID = "";
+		String dbPassword = "";
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -135,9 +135,9 @@ public class AdminService {
 		
 		String SQL = "INSERT INTO NOTICE VALUES (?, ?, ?, ?, ?)";
 		
-		String dbURL = "jdbc:mysql://34.64.253.179:3306/chat";
-		String dbID = "song";
-		String dbPassword = "!!Aa119562";
+		String dbURL = "";
+		String dbID = "";
+		String dbPassword = "";
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -160,9 +160,9 @@ public class AdminService {
 	public ArrayList<Notice> getNoticeList(int pageNumber){
 		String SQL = "SELECT * FROM NOTICE WHERE noticeID < ? ORDER BY noticeID DESC LIMIT 10;";
 		
-		String dbURL = "jdbc:mysql://34.64.253.179:3306/chat";
-		String dbID = "song";
-		String dbPassword = "!!Aa119562";
+		String dbURL = "";
+		String dbID = "";
+		String dbPassword = "";
 		
 		ArrayList<Notice> list = new ArrayList<Notice>();
 		try {
@@ -188,9 +188,9 @@ public class AdminService {
 
 	public Notice getNotice(int noticeID) {
 		String SQL = "SELECT * FROM NOTICE WHERE noticeID = ?;";
-		String dbURL = "jdbc:mysql://34.64.253.179:3306/chat";
-		String dbID = "song";
-		String dbPassword = "!!Aa119562";
+		String dbURL = "";
+		String dbID = "";
+		String dbPassword = "";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
@@ -214,9 +214,9 @@ public class AdminService {
 	
 	public int nextPage(int pageNumber) {
 		String SQL = "SELECT * FROM NOTICE WHERE noticeID < ? ORDER BY noticeID DESC LIMIT 10";
-		String dbURL = "jdbc:mysql://34.64.253.179:3306/chat";
-		String dbID = "song";
-		String dbPassword = "!!Aa119562";
+		String dbURL = "";
+		String dbID = "";
+		String dbPassword = "";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
@@ -234,9 +234,9 @@ public class AdminService {
 	
 	public int adminLogin(int password) {
 		String SQL = "SELECT password FROM ADMIN WHERE password = ?";
-		String dbURL = "jdbc:mysql://34.64.253.179:3306/chat";
-		String dbID = "song";
-		String dbPassword = "!!Aa119562";
+		String dbURL = "";
+		String dbID = "";
+		String dbPassword = "";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
