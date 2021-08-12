@@ -13,9 +13,9 @@ public class UserDAO {
 	
 	public UserDAO() {
 		try {
-			String dbURL = "jdbc:mysql://34.64.253.179:3306/chat";
-			String dbID = "song";
-			String dbPassword = "!!Aa119562";
+			String dbURL = "";
+			String dbID = "";
+			String dbPassword = "";
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
 		}catch (Exception e) {
