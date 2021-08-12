@@ -29,7 +29,7 @@ public class AdminService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return ""; // µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return ""; // ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	
 	public int getNext() {
@@ -40,20 +40,20 @@ public class AdminService {
 			if (rs.next()) {
 				return rs.getInt(1) + 1;
 			}
-			return 1;// Ã¹ ¹øÂ° °Ô½Ã¹°ÀÎ °æ¿ì
+			return 1;// Ã¹ ï¿½ï¿½Â° ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return -1; // µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return -1; // ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	
 	public int delete(int boardID) {
 		
 		String SQL = "DELETE FROM BOARD WHERE boardID = ?;";
 		
-		String dbURL = "jdbc:mysql://localhost:3308/CHAT";
-		String dbID = "root";
-		String dbPassword = "0000";
+		String dbURL = "jdbc:mysql://34.64.253.179:3306/chat";
+		String dbID = "song";
+		String dbPassword = "!!Aa119562";
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -65,16 +65,16 @@ public class AdminService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return -1; // µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return -1; // ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	
 	public int deleteNotice(int noticeID) {
 		
 		String SQL = "DELETE FROM NOTICE WHERE noticeID = ?;";
 		
-		String dbURL = "jdbc:mysql://localhost:3308/CHAT";
-		String dbID = "root";
-		String dbPassword = "0000";
+		String dbURL = "jdbc:mysql://34.64.253.179:3306/chat";
+		String dbID = "song";
+		String dbPassword = "!!Aa119562";
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -86,16 +86,16 @@ public class AdminService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return -1; // µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return -1; // ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	
 	public int changeNotice(int Password) {
 		
 		String SQL = "UPDATE NOTICE SET noticeAvailable = IF(noticeAvailable = 0, '1', '0') WHERE noticeID = ?;";
 
-		String dbURL = "jdbc:mysql://localhost:3308/CHAT";
-		String dbID = "root";
-		String dbPassword = "0000";
+		String dbURL = "jdbc:mysql://34.64.253.179:3306/chat";
+		String dbID = "song";
+		String dbPassword = "!!Aa119562";
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -107,16 +107,16 @@ public class AdminService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return -1; // µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return -1; // ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 
 	public int changePw(int password) {
 		
 		String SQL = "UPDATE admin SET password = ?;";
 		
-		String dbURL = "jdbc:mysql://localhost:3308/CHAT";
-		String dbID = "root";
-		String dbPassword = "0000";
+		String dbURL = "jdbc:mysql://34.64.253.179:3306/chat";
+		String dbID = "song";
+		String dbPassword = "!!Aa119562";
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -128,16 +128,16 @@ public class AdminService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return -1; // µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return -1; // ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 
 	public int noticeWrite(String noticeTitle, int noticeAvailable, String noticeContent) {
 		
 		String SQL = "INSERT INTO NOTICE VALUES (?, ?, ?, ?, ?)";
 		
-		String dbURL = "jdbc:mysql://localhost:3308/CHAT";
-		String dbID = "root";
-		String dbPassword = "0000";
+		String dbURL = "jdbc:mysql://34.64.253.179:3306/chat";
+		String dbID = "song";
+		String dbPassword = "!!Aa119562";
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -154,15 +154,15 @@ public class AdminService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return -1; // µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return -1; // ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	
 	public ArrayList<Notice> getNoticeList(int pageNumber){
 		String SQL = "SELECT * FROM NOTICE WHERE noticeID < ? ORDER BY noticeID DESC LIMIT 10;";
 		
-		String dbURL = "jdbc:mysql://localhost:3308/CHAT";
-		String dbID = "root";
-		String dbPassword = "0000";
+		String dbURL = "jdbc:mysql://34.64.253.179:3306/chat";
+		String dbID = "song";
+		String dbPassword = "!!Aa119562";
 		
 		ArrayList<Notice> list = new ArrayList<Notice>();
 		try {
@@ -183,14 +183,14 @@ public class AdminService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return list; // µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return list; // ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 
 	public Notice getNotice(int noticeID) {
 		String SQL = "SELECT * FROM NOTICE WHERE noticeID = ?;";
-		String dbURL = "jdbc:mysql://localhost:3308/CHAT";
-		String dbID = "root";
-		String dbPassword = "0000";
+		String dbURL = "jdbc:mysql://34.64.253.179:3306/chat";
+		String dbID = "song";
+		String dbPassword = "!!Aa119562";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
@@ -209,14 +209,14 @@ public class AdminService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return null; // µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return null; // ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	
 	public int nextPage(int pageNumber) {
 		String SQL = "SELECT * FROM NOTICE WHERE noticeID < ? ORDER BY noticeID DESC LIMIT 10";
-		String dbURL = "jdbc:mysql://localhost:3308/CHAT";
-		String dbID = "root";
-		String dbPassword = "0000";
+		String dbURL = "jdbc:mysql://34.64.253.179:3306/chat";
+		String dbID = "song";
+		String dbPassword = "!!Aa119562";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
@@ -229,14 +229,14 @@ public class AdminService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return 0; // µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return 0; // ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	
 	public int adminLogin(int password) {
 		String SQL = "SELECT password FROM ADMIN WHERE password = ?";
-		String dbURL = "jdbc:mysql://localhost:3308/CHAT";
-		String dbID = "root";
-		String dbPassword = "0000";
+		String dbURL = "jdbc:mysql://34.64.253.179:3306/chat";
+		String dbID = "song";
+		String dbPassword = "!!Aa119562";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
@@ -245,16 +245,16 @@ public class AdminService {
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				if(rs.getInt(1) == password) {
-					return 1;// ·Î±×ÀÎ ¼º°ø
+					return 1;// ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				}
 				else
-					return 0; //ºñ¹Ð¹øÈ£ ºÒÀÏÄ¡
+					return 0; //ï¿½ï¿½Ð¹ï¿½È£ ï¿½ï¿½ï¿½ï¿½Ä¡
 			}
-			return -1; //¾ÆÀÌµð ¾øÀ½
+			return -1; //ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return -2; // µ¥ÀÌÅÍ º£ÀÌ½º ¿À·ù
+		return -2; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 }
 

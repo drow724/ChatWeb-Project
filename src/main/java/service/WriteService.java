@@ -30,7 +30,7 @@ public class WriteService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return ""; // µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return ""; // ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	
 	public int getNext() {
@@ -41,20 +41,20 @@ public class WriteService {
 			if (rs.next()) {
 				return rs.getInt(1) + 1;
 			}
-			return 1;// Ã¹ ¹øÂ° °Ô½Ã¹°ÀÎ °æ¿ì
+			return 1;// Ã¹ ï¿½ï¿½Â° ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return -1; // µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return -1; // ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	
 	public int write(String boardTitle, String userID, String boardContent, String boardFiles) {
 		
 		String SQL = "INSERT INTO BOARD VALUES (?, ?, ?, ?, ?, ?, ?)";
 		
-		String dbURL = "jdbc:mysql://localhost:3308/CHAT";
-		String dbID = "root";
-		String dbPassword = "0000";
+		String dbURL = "jdbc:mysql://34.64.253.179:3306/chat";
+		String dbID = "song";
+		String dbPassword = "!!Aa119562";
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -73,15 +73,15 @@ public class WriteService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return -1; // µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return -1; // ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	
 	public ArrayList<Board> getList(int pageNumber){
 		String SQL = "SELECT * FROM BOARD WHERE boardID < ? ORDER BY boardID DESC LIMIT 10;";
 		
-		String dbURL = "jdbc:mysql://localhost:3308/CHAT";
-		String dbID = "root";
-		String dbPassword = "0000";
+		String dbURL = "jdbc:mysql://34.64.253.179:3306/chat";
+		String dbID = "song";
+		String dbPassword = "!!Aa119562";
 		
 		ArrayList<Board> list = new ArrayList<Board>();
 		try {
@@ -104,14 +104,14 @@ public class WriteService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return list; // µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return list; // ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	
 	public int nextPage(int pageNumber) {
 		String SQL = "SELECT * FROM BOARD WHERE boardID < ? ORDER BY boardID DESC LIMIT 10";
-		String dbURL = "jdbc:mysql://localhost:3308/CHAT";
-		String dbID = "root";
-		String dbPassword = "0000";
+		String dbURL = "jdbc:mysql://34.64.253.179:3306/chat";
+		String dbID = "song";
+		String dbPassword = "!!Aa119562";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
@@ -124,14 +124,14 @@ public class WriteService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return 0; // µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return 0; // ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	
 	public Board getBoard(int boardID) {
 		String SQL = "SELECT * FROM BOARD WHERE boardID = ?;";
-		String dbURL = "jdbc:mysql://localhost:3308/CHAT";
-		String dbID = "root";
-		String dbPassword = "0000";
+		String dbURL = "jdbc:mysql://34.64.253.179:3306/chat";
+		String dbID = "song";
+		String dbPassword = "!!Aa119562";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
@@ -152,15 +152,15 @@ public class WriteService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return null; // µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return null; // ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	public int CommentWrite(String CommentContent, String userID, int boardID) {
 			
 			String SQL = "INSERT INTO comment VALUES (?, ?, ?, ?, ?)";
 			
-			String dbURL = "jdbc:mysql://localhost:3308/CHAT";
-			String dbID = "root";
-			String dbPassword = "0000";
+			String dbURL = "jdbc:mysql://34.64.253.179:3306/chat";
+			String dbID = "song";
+			String dbPassword = "!!Aa119562";
 	
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
@@ -177,15 +177,15 @@ public class WriteService {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			return -1; // µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+			return -1; // ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		}
 	
 	public ArrayList<Comment> getCommentList(int boardId){
 		String SQL = "SELECT * FROM COMMENT WHERE Board_ID = ? ORDER BY Board_ID DESC LIMIT 5;";
 		
-		String dbURL = "jdbc:mysql://localhost:3308/CHAT";
-		String dbID = "root";
-		String dbPassword = "0000";
+		String dbURL = "jdbc:mysql://34.64.253.179:3306/chat";
+		String dbID = "song";
+		String dbPassword = "!!Aa119562";
 		
 		ArrayList<Comment> list = new ArrayList<Comment>();
 		try {
@@ -206,15 +206,15 @@ public class WriteService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return list; // µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return list; // ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	
 	public ArrayList<Notice> getNoticeList(int pageNumber){
 		String SQL = "SELECT * FROM NOTICE WHERE noticeID < ? AND noticeAvailable = 1 ORDER BY noticeID DESC LIMIT 10;";
 		
-		String dbURL = "jdbc:mysql://localhost:3308/CHAT";
-		String dbID = "root";
-		String dbPassword = "0000";
+		String dbURL = "jdbc:mysql://34.64.253.179:3306/chat";
+		String dbID = "song";
+		String dbPassword = "!!Aa119562";
 		
 		ArrayList<Notice> list = new ArrayList<Notice>();
 		try {
@@ -235,14 +235,14 @@ public class WriteService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return list; // µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return list; // ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 
 	public Notice getNotice(int noticeID) {
 		String SQL = "SELECT * FROM NOTICE WHERE noticeID = ?;";
-		String dbURL = "jdbc:mysql://localhost:3308/CHAT";
-		String dbID = "root";
-		String dbPassword = "0000";
+		String dbURL = "jdbc:mysql://34.64.253.179:3306/chat";
+		String dbID = "song";
+		String dbPassword = "!!Aa119562";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
@@ -261,14 +261,14 @@ public class WriteService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return null; // µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return null; // ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	
 	public User getFind(String userEmail, String userName) {
 		String SQL = "SELECT * FROM USER WHERE userEmail = ? and userName =?;";
-		String dbURL = "jdbc:mysql://localhost:3308/CHAT";
-		String dbID = "root";
-		String dbPassword = "0000";
+		String dbURL = "jdbc:mysql://34.64.253.179:3306/chat";
+		String dbID = "song";
+		String dbPassword = "!!Aa119562";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
@@ -285,7 +285,7 @@ public class WriteService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return null; // µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return null; // ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 }
 

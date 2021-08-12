@@ -11,7 +11,7 @@
 <script src="js/error/dbError.js"></script>
 </head>
 <body>
-<img alt="idError" src="ima/idError.png">
+<img alt="idError" src="img/idError.png">
 <div>
 <span id="art" class="art">
 &nbsp;
