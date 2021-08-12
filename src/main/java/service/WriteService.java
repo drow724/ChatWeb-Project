@@ -52,9 +52,9 @@ public class WriteService {
 		
 		String SQL = "INSERT INTO BOARD VALUES (?, ?, ?, ?, ?, ?, ?)";
 		
-		String dbURL = "jdbc:mysql://34.64.253.179:3306/chat";
-		String dbID = "song";
-		String dbPassword = "!!Aa119562";
+		String dbURL = "";
+		String dbID = "";
+		String dbPassword = "";
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -79,9 +79,9 @@ public class WriteService {
 	public ArrayList<Board> getList(int pageNumber){
 		String SQL = "SELECT * FROM BOARD WHERE boardID < ? ORDER BY boardID DESC LIMIT 10;";
 		
-		String dbURL = "jdbc:mysql://34.64.253.179:3306/chat";
-		String dbID = "song";
-		String dbPassword = "!!Aa119562";
+		String dbURL = "";
+		String dbID = "";
+		String dbPassword = "";
 		
 		ArrayList<Board> list = new ArrayList<Board>();
 		try {
@@ -109,9 +109,9 @@ public class WriteService {
 	
 	public int nextPage(int pageNumber) {
 		String SQL = "SELECT * FROM BOARD WHERE boardID < ? ORDER BY boardID DESC LIMIT 10";
-		String dbURL = "jdbc:mysql://34.64.253.179:3306/chat";
-		String dbID = "song";
-		String dbPassword = "!!Aa119562";
+		String dbURL = "";
+		String dbID = "";
+		String dbPassword = "";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
@@ -129,9 +129,9 @@ public class WriteService {
 	
 	public Board getBoard(int boardID) {
 		String SQL = "SELECT * FROM BOARD WHERE boardID = ?;";
-		String dbURL = "jdbc:mysql://34.64.253.179:3306/chat";
-		String dbID = "song";
-		String dbPassword = "!!Aa119562";
+		String dbURL = "";
+		String dbID = "";
+		String dbPassword = "";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
@@ -158,9 +158,9 @@ public class WriteService {
 			
 			String SQL = "INSERT INTO comment VALUES (?, ?, ?, ?, ?)";
 			
-			String dbURL = "jdbc:mysql://34.64.253.179:3306/chat";
-			String dbID = "song";
-			String dbPassword = "!!Aa119562";
+			String dbURL = "";
+			String dbID = "";
+			String dbPassword = "";
 	
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
@@ -183,9 +183,9 @@ public class WriteService {
 	public ArrayList<Comment> getCommentList(int boardId){
 		String SQL = "SELECT * FROM COMMENT WHERE Board_ID = ? ORDER BY Board_ID DESC LIMIT 5;";
 		
-		String dbURL = "jdbc:mysql://34.64.253.179:3306/chat";
-		String dbID = "song";
-		String dbPassword = "!!Aa119562";
+		String dbURL = "";
+		String dbID = "";
+		String dbPassword = "";
 		
 		ArrayList<Comment> list = new ArrayList<Comment>();
 		try {
@@ -212,9 +212,9 @@ public class WriteService {
 	public ArrayList<Notice> getNoticeList(int pageNumber){
 		String SQL = "SELECT * FROM NOTICE WHERE noticeID < ? AND noticeAvailable = 1 ORDER BY noticeID DESC LIMIT 10;";
 		
-		String dbURL = "jdbc:mysql://34.64.253.179:3306/chat";
-		String dbID = "song";
-		String dbPassword = "!!Aa119562";
+		String dbURL = "";
+		String dbID = "";
+		String dbPassword = "";
 		
 		ArrayList<Notice> list = new ArrayList<Notice>();
 		try {
@@ -240,9 +240,9 @@ public class WriteService {
 
 	public Notice getNotice(int noticeID) {
 		String SQL = "SELECT * FROM NOTICE WHERE noticeID = ?;";
-		String dbURL = "jdbc:mysql://34.64.253.179:3306/chat";
-		String dbID = "song";
-		String dbPassword = "!!Aa119562";
+		String dbURL = "";
+		String dbID = "";
+		String dbPassword = "";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
@@ -266,9 +266,9 @@ public class WriteService {
 	
 	public User getFind(String userEmail, String userName) {
 		String SQL = "SELECT * FROM USER WHERE userEmail = ? and userName =?;";
-		String dbURL = "jdbc:mysql://34.64.253.179:3306/chat";
-		String dbID = "song";
-		String dbPassword = "!!Aa119562";
+		String dbURL = "";
+		String dbID = "";
+		String dbPassword = "";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
